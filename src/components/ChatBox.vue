@@ -36,9 +36,9 @@
 
 <script>
 	import Vue from "vue"
-	import ChatArea from '__TEMP__/ChatArea.vue'
+	import ChatArea from './ChatArea.vue'
 	
-	import Util from '__UTIL__/ChatUtil.js'
+	import Util from '../assets/ChatUtil.js'
 	
 	export default{
 		data(){

@@ -2,10 +2,8 @@ import Vue from "vue"
 
 Vue.prototype.$eventHub = Vue.prototype.$eventHub ||  new Vue()
 
-import defaultHeadImage from '__IMG__/icon/headImage@2x.png'
-import massHeadImage from '__IMG__/icon/icon-284.png'
-
-import chatAjax from "__ACTION__/ChatAction.js"
+import defaultHeadImage from './logo.png'
+import massHeadImage from './logo.png'
 
 const CHAT_RECORDS_KEY = 'chat-records-of'
 
@@ -251,16 +249,7 @@ export default {
 		
 		if(isExist == false){
 			// 消息存储失败，创建新聊天存储
-			// 获取患者详情，目前用ajax获取
-			chatAjax.selectMemberInfo({
-				loginName: patientLoginName
-			}).success(data => {
-		    	if(data && data.length > 0){
-		    		let person = new PatientModel(data[0]);
-		    		this.createNewChat(person, message, true);
-		    		Vue.prototype.$eventHub.$emit('new-message', patientId, msg)
-		    	}
-			})
+			
 		}else{
 			Vue.prototype.$eventHub.$emit('new-message', patientId, msg)
 		}
@@ -347,18 +336,6 @@ export default {
 		var reader = new FileReader();
         reader.onload = (e) => {
         	// 上传图片
-			chatAjax.uploadImage({
-				loginName: ACCOUNTM.getAccountModel().loginName,
-				files: e.target.result,
-				userType: 1,
-				fileType: 9
-			}).success(data => {
-		    	self.sendMessage(patient, {
-		    		type: 5,
-			    	content: data,
-			    	shortWords: '[图片]'
-		    	});
-			})
         }
         reader.readAsDataURL(file);
 	}

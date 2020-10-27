@@ -17,17 +17,13 @@
 				</div>
 			</div>
 		</div>
-		<!-- 图片预览 -->
-		<gallery :images="images" :index="index" @close="index = null" :options="{container: '#gallery-container', continuous: false}"></gallery>
 	</div>
 </template>
 
 <script>
-	import Util from '__UTIL__/ChatUtil.js'
+	import Util from '../assets/ChatUtil.js'
 	
-	import VueGallery from 'vue-gallery'
-	
-	import defaultHeadImage from '__IMG__/icon/headImage@2x.png'
+	import defaultHeadImage from '../assets/logo.png'
 	
 	export default{
 		data(){
@@ -40,9 +36,6 @@
 		props: ['messages'],
 		created(){
 			this.account = ACCOUNTM.getAccountModel();
-		},
-		components: {
-			gallery: VueGallery
 		},
 		computed: {
 			images(){

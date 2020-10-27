@@ -1,4 +1,4 @@
-import Util from '__UTIL__/ChatUtil.js'
+import Util from './ChatUtil.js'
 
 // 心跳检测超时时间
 const CHAT_MSG_TIMEOUT = 10000

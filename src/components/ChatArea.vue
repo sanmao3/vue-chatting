@@ -13,8 +13,6 @@
 				<!-- 群发聊天消息 -->
 				<chat-mass-messages :chatman="patient" v-if="patient.id == -1 && receivers.length == 0"></chat-mass-messages>
 			</keep-alive>
-			<!-- 群发患者 -->
-			<chat-mass-receivers :receivers="receivers" :editable="editable" v-if="patient.id == -1 && receivers.length > 0" v-on:closeSheet="closeReceivers"></chat-mass-receivers>
 			<!-- 聊天工具栏 -->
 			<div class="send-controller">
 				<div class="toolbar">
@@ -41,10 +39,9 @@
 </template>
 
 <script>
-	import ChatMessages from '__TEMP__/ChatMessages.vue'
-	import ChatMassReceivers from '__TEMP__/ChatMassReceivers.vue'
+	import ChatMessages from './ChatMessages.vue'
 	
-	import Util from '__UTIL__/ChatUtil.js'
+	import Util from '../assets/ChatUtil.js'
 	
 	export default{
 		data(){
@@ -59,8 +56,7 @@
 		},
 		props: ['patient'],
 		components: {
-			ChatMessages,
-			ChatMassReceivers
+			ChatMessages
 		},
 		watch: {
 			patient(val, oldVal){
