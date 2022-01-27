@@ -59,9 +59,12 @@ export default {
 
 <style lang="scss" scoped>
 .chat-box {
-  width: 800px;
-  height: 600px;
-  margin: 0 auto;
-  border: 1px solid #eee;
+  width: 80%;
+  min-width: 600px;
+  max-width: 1200px;
+  height: 80vh;
+  margin: 10vh auto 0;
+  background-color: rgba($color: #fff, $alpha: 0.95);
+  border-radius: 16px;
 }
 </style>
